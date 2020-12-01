@@ -6,7 +6,7 @@ class TasksSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Tasks
-        fields = ('id', 'text', 'is_completed', 'completed_date', 'author')
+        fields = ('id', 'title', 'text', 'is_completed', 'completed_date', 'author')
 
 
 class AppUserSerializer(serializers.ModelSerializer):
