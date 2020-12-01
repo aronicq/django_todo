@@ -1,0 +1,19 @@
+{% extends 'django_todo_app/base.html' %}
+{% block body_block %}
+
+<div class="jumbotron">
+    <h1> please login</h1>
+    <form action="{% url 'django_todo_app:user_login'%}", method="POST">
+        
+        <label for="username">username:</label>
+        <input type="text" name="username" placeholder="Enter username">
+
+        <label for="password">password:</label>
+        <input type="password" name="password">
+
+        <input type="submit" value="Login">
+        {% csrf_token %}
+    </form>
+</div>
+
+{% endblock %}
