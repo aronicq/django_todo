@@ -26,20 +26,20 @@
   --data-urlencode 'completed_date=DATE_VALUE(YYYY-MM-DD)' \
   --data-urlencode 'title=TEXT_VALUE'
 
-6 Get all the tasks where author is token owner
+6. Get all the tasks where author is token owner
   curl --location --request GET '127.0.0.1:8000/tasks/' \
   --header 'Authorization: Bearer USER_TOKEN'
 
-7 Get one task IF created by token owner
+7. Get one task IF created by token owner
   curl --location --request GET '127.0.0.1:8000/tasks/TASK_ID' \
   --header 'Authorization: Bearer USER_TOKEN'
 
-8 Mark task as completed(irreversible)
+8. Mark task as completed(irreversible)
   curl --location --request PUT '127.0.0.1:8000/tasks/TASK_ID/' \
   --header 'Authorization: Bearer USER_TOKEN' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'is_completed=True'
 
-9 Delete a task 
+9. Delete a task 
   curl --location --request DELETE '127.0.0.1:8000/tasks/TASK_ID/' \
   --header 'Authorization: Bearer USER_TOKEN'
