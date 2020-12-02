@@ -6,7 +6,6 @@ from rest_framework import viewsets, generics, status
 from django_todo_app.models import Tasks, AppUser
 from django_todo_app.serializers import TasksSerializer, AppUserSerializer
 from rest_framework.response import Response
-# from rest_framework.authentication import TokenAuthentication
 
 
 class TasksView(viewsets.ModelViewSet):
@@ -41,8 +40,10 @@ class TasksView(viewsets.ModelViewSet):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     def update(self, request, pk=None):
-        # print(request.data['id'])
         task = Tasks.objects.get(pk=pk)
+        if task.is_completed: 
+            return Response(data={"message": "task is already completed"})
+
         task.is_completed = request.data['is_completed']
         task.save()
         task_serializer = TasksSerializer(task)

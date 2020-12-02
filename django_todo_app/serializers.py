@@ -26,6 +26,7 @@ class AppUserSerializer(serializers.ModelSerializer):
         serializer = AppUserSerializer(data=validated_data)
         serializer.is_valid(raise_exception=True)
         password = validated_data.pop('password')
+        print("create" + password)
         user = AppUser(**validated_data)
         user.set_password(password)
         user.save()
